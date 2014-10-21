@@ -25,6 +25,6 @@ window.Slider = class Slider
       input.max = @items.length - 1
 
       $(input).on 'change', =>
-         console.log @items[$(input).val()]
+         toggle_view(@items[$(input).val()].year)
 
       return input
