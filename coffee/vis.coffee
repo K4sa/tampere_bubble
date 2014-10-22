@@ -31,7 +31,27 @@ class BubbleChart
       "Eteläinen": {x: @width / 2, y: 720},
       "Kaakkoinen": {x: @width - 140, y: 660}	  
     }
-    @tre_text = { "TAMPERE": {x: @width / 2, y: 760}, pop_tre: {x: @width / 2, y: 780}}
+    @tre_text = { 
+      "1980: 170 000 asukasta": {x: 330, y: 60},
+      "1990: 180 000 asukasta": {x: 240, y: 165},
+      "2000: 190 000 asukasta": {x: 200, y: 270},
+      "2013: 210 000 asukasta": {x: 200, y: 375},
+      "2020: 210 000 asukasta": {x: 220, y: 480},
+      "2040: 210 000 asukasta": {x: 280, y: 585},
+      "TARKASTELE Tampereen väkiluvun jakaantumista": {x: 960, y: 60}, 
+      "ja sen kehitystä vuosittain kaaviossa,": {x: 940, y: 80},
+      "jossa jokainen kuplaa vastaa eri asuinaluetta.": {x: 990, y: 100},
+      "VERTAILE kuplien kokoa,": {x: 990, y: 190},
+      "joka määrittyy alueen väkiluvun": {x: 1030, y: 210},
+      "suhteesta Tampereen väkilukuun.": {x: 1050, y: 230},
+      "JÄRJESTÄ kuplat joko suuralueiden,": {x: 1070, y: 320},
+      "sijainnin tai suuruuden mukaan.": {x: 1055, y: 340},
+      "PAINA kuplaa saadaksesi": {x: 1010, y: 430},
+      "sen alueesta tarkempaa tietoa.": {x: 1010, y: 450},
+      "ENNUSTA Tampereen väkiluvun kehitystä": {x: 1025, y: 540},
+      "vuosien 2020 ja 2040 ennusteilla,": {x: 975, y: 560},
+      "jotka on laadittu aikaisempien vuosien perusteella": {x: 1005, y: 580}  
+    }
 
     #Kartan koordinaatit
     @location_map = {
