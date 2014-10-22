@@ -13,7 +13,7 @@ class BubbleChart
 
 	#Koordinaatit, joihin kappaleet tai tekstit hakeutuvat
     @center = {x: @width / 2, y: @height / 2}
-    @main_height = 460
+    @main_height = 380
     @location_centers = {
       "Luoteinen": {x: 420, y: 300},
       "Pohjoinen": {x: @width / 2, y: 300},
@@ -363,8 +363,8 @@ class BubbleChart
  #Näytetään tooltipin infot
   show_details: (data, i, element) =>
     d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.group)).darker())
-    content = "<span class=\"name\">Asuinalue:</span><span class=\"value\"> #{data.name}</span><br/>"
-    content +="<span class=\"name\">Asukkaita:</span><span class=\"value\"> #{addCommas(data.value)}</span><br/>"
+    content = "<span class=\"title\"> #{data.name}</span><br/>"
+    content +="<span class=\"name\"> #{data.value}</span><span class=\"name\"> asukasta</span><br/>"
     @tooltip.showTooltip(content,d3.event)
 
 	#Piiloitetaan tooltipin info
