@@ -27,13 +27,8 @@ footer {
 	position: absolute;
 	top: 100px;
 	left: 100px;
-  -moz-border-radius:2px;
-	border-radius: 2px;
-  border: 2px solid #000;
-	/* background: #222222; */
   background: #fff;
 	opacity: .9;
-	/* color: #eeeeee; */
   color: black;
 	padding: 10px;
 	width: 300px;
@@ -42,30 +37,32 @@ footer {
 }
 
 .tooltip .title {
-	font-size: 13px;
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
 }
 
 .tooltip .name {
-  font-weight:bold;
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
 }
 
 .ye  {
 	font-size: 220%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Oswald', sans-serif;
 }
 .gr  {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Oswald', sans-serif;
 }
 
 .groups  {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Josefin Slab', serif;
 }
 
 .tredata  {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Josefin Slab', serif;
 }
 
 .title {
@@ -91,7 +88,41 @@ footer {
     stroke-width: 8;
 	fill: steelblue;
    }
- 
+
+.modal-content {
+    border-radius: 0px;
+	opacity: 0.9;
+}
+
+.modal-header {
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
+	border-bottom: 0px;
+}
+
+.modal-body {
+	font-size: 18px;
+	font-family: 'Josefin Slab', serif;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+.modal-footer {
+	border-top: 0px;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	padding: 0px 28px 10px 28px;
+	
+}
+
+.modal-content{
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0);
+}
 
 
-
+.modal-backdrop.fade.in {
+	opacity: 0.9;
+}
