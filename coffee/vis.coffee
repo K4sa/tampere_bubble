@@ -362,8 +362,16 @@ class BubbleChart
     modal = $('#population_modal')
     modal.find('#place_name').text(data.name)
 
-	#Luodaan modaalin visualisaatiolla (bar chart) tiedot
-    bar_data = [data.people_80, data.people_90, data.people_00, data.people, data.people_20, data.people_40]
+	 #Luodaan modaalin visualisaatiolla (bar chart) tiedot
+    bar_data = [
+       data.people[1980]
+       data.people[1990]
+       data.people[2000]
+       data.people[2013]
+       data.people[2020]
+       data.people[2040]
+    ]
+
     year_names = ["1980", "1990", "2000", "2013", "2020", "2040"]
 
     color = @fill_color(data.group)
