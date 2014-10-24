@@ -17,6 +17,8 @@
   <!--<link rel="stylesheet" href="css/reset.css">-->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <!-- end CSS-->
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
@@ -33,28 +35,41 @@
       </div>
       <div class="modal-body">
 		<div id="year_2040"></div>
-		<div id="year_bar"><p>1980   1990   2000   2013   2020   2040</p></div>
       </div>
+	  <div class="modal-footer">
+			<div class="row" id="year_bar">
+				<div class="col-md-2">1980</div>
+				<div class="col-md-2">1990</div>
+				<div class="col-md-2">2000</div>
+				<div class="col-md-2">2013</div>
+				<div class="col-md-2">2020</div>
+				<div class="col-md-2">2040</div>
+			</div>
+			<br>
+			<div id="wiki">
+			</div>
+			<div id ="wikicite">- Wikipedia</div>
+	  </div>
     </div>
   </div>
 </div>
    <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
-
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <ul class="nav navbar-nav navbar-left">
+		<div class="navbar-header">
+       <a class="navbar-brand" id="brand-text" href="#"><p id="brand-city">TAMPERE</p><br>&nbsp;&nbsp;&nbsp;&nbsp; in the Bubble</a>
+    </div>
+         <ul class="nav navbar-nav">
 		    <ul class="nav navbar-nav" id="view_selection">
-			   <li class="title pull-left"><a href="#">Tampere</a></li>
 			   <li class="ye" id="1980"><a href="#">1980</a></li>
 			   <li class="ye" id="1990"><a href="#"> 1990 </a></li>
 			   <li class="ye" id="2000"><a href="#"> 2000 </a></li>
 			   <li class="ye active" id="2013"><a href="#"> 2013 </a></li>
 			   <li class="ye" id="2020"><a href="#"> 2020 </a></li>
 			   <li class="ye" id="2040"><a href="#"> 2040 </a></li>
-			   <li class="title pull-right"><a href="#">Tietoja</a></li>
 		    </ul>
          </ul>
-         <ul class="nav navbar-nav navbar-right">
+         <ul class="nav navbar-nav">
             <ul class="nav navbar-nav" id="view_type">
                <li class="gr active" id="all"><a href="#">YHDESSÄ</a></li>
                <li class="gr" id="group"><a href="#">SUURALUEITTAIN</a></li>

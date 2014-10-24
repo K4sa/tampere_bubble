@@ -10,7 +10,7 @@ a, a:visited, a:active {
 }
 
 body {
-  background-color: #F2F2F2;
+  background-color: #F5EFD5;
 }
 
 footer {
@@ -27,13 +27,8 @@ footer {
 	position: absolute;
 	top: 100px;
 	left: 100px;
-  -moz-border-radius:2px;
-	border-radius: 2px;
-  border: 2px solid #000;
-	/* background: #222222; */
-  background: #fff;
+  background: #DBD6BF;
 	opacity: .9;
-	/* color: #eeeeee; */
   color: black;
 	padding: 10px;
 	width: 300px;
@@ -42,56 +37,140 @@ footer {
 }
 
 .tooltip .title {
-	font-size: 13px;
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
+	color: F5EFD5;
 }
 
 .tooltip .name {
-  font-weight:bold;
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  color: F5EFD5;
 }
 
 .ye  {
 	font-size: 220%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Oswald', sans-serif;
 }
 .gr  {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Oswald', sans-serif;
 }
 
 .groups  {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Josefin Slab', serif;
 }
 
-.tredata  {
+.tredata {
 	font-size: 120%;
-	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-family: 'Josefin Slab', serif;
+	fill: #2E2E2E;
 }
 
 .title {
 	font-size: 220%
 }
 
+#brand-text  {
+	font-size: 160%;
+	font-family: 'Josefin Slab', serif;
+	font-weight: bold;
+}
+
+#brand-city  {
+	font-size: 200%;
+	font-family: 'Oswald', sans-serif;
+	color: #00ACAE;
+}
+
 .navbar-nav {
-    width: 100%;
+    width: 70%;
     text-align: center;
+	margin-left: 9%;
 }
 .navbar-nav li {
       float: none;
       display: inline-block;
     }
-
+.navbar-nav > li > a {
+    padding-bottom: 2px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #2E2E2E;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #00ACAE;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #F37606;
+  background-color: transparent;
+}
+.navbar-default {
+  background-color: #transparent;
+  border-color: #transparent;
+}
 .bar_chart rect {
     font: 10px sans-serif;
     text-align: right;
     padding: 3px;
     margin: 1px;
     color: black;
-	stroke: white;
+	stroke: #F5EFD5;;
     stroke-width: 8;
-	fill: steelblue;
    }
- 
+
+.modal-content {
+    border-radius: 0px;
+	opacity: 0.9;
+	background-color: #F5EFD5;
+}
+
+.modal-header {
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
+	border-bottom: 0px;
+}
+
+.modal-body {
+	font-size: 18px;
+	font-family: 'Josefin Slab', serif;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+.modal-footer {
+	border-top: 0px;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	padding: 0px 28px 10px 28px;
+	
+}
+
+.modal-content{
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0);
+}
 
 
+.modal-backdrop.fade.in {
+	opacity: 0.9;
+}
+
+#wiki {
+	font-size: 120%;
+	font-family: 'Josefin Slab', serif;
+	text-align: justify;
+	fill: #2E2E2E;
+}
+
+#wikicite {
+	text-align: left;
+}
 
