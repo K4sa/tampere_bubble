@@ -13,11 +13,17 @@ class Slider
       $(input).on 'input', =>
          @sendViewChangedEvent @items[$(@input).val()].name
 
+      $(document).on 'vis:viewChanged', (e, id) =>
+         $(@input).val @indexOfItem id
+
       return input
 
    sendViewChangedEvent: (id) ->
       $(document).trigger 'vis:viewChanged', id
       toggle_view id
+
+   indexOfItem: (year) ->
+      return @items.indexOf item  for item in @items when item.name is year
 
 
 # Slider-objektin luominen

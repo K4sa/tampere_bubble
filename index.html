@@ -102,15 +102,20 @@
   <script type="text/coffeescript" src="coffee/slider.coffee"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-        $(document).ready(function() {
-          $('#view_selection li').click(function() {
-            var view_type = $(this).attr('id');
+       $(document).ready(function() {
+          var changeActiveItem = function(e, id) {
             $('#view_selection li').removeClass('active');
-            $(this).toggleClass('active');
-            toggle_view(view_type);
-            return false;
+            $('#' + id).addClass('active');
+            toggle_view(id);
+          };
+
+          $('#view_selection li').click(function(e) {
+             var id = $(this).attr('id');
+             changeActiveItem(e, id);
+             $(document).trigger('vis:viewChanged', id);
           });
-        });
+          $(document).on('vis:viewChanged', changeActiveItem);
+       });
     });
   </script>
     <script type="text/javascript">
