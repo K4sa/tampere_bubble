@@ -102,33 +102,26 @@
   <script type="text/coffeescript" src="coffee/slider.coffee"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-       $(document).ready(function() {
-          var changeActiveItem = function(e, id) {
-            $('#view_selection li').removeClass('active');
-            $('#' + id).addClass('active');
-            toggle_view(id);
-          };
+       var changeActiveItem = function(e, id) {
+          $('#view_selection li').removeClass('active');
+          $('#' + id).addClass('active');
+          toggle_view(id);
+       };
 
-          $('#view_selection li').click(function(e) {
-             var id = $(this).attr('id');
-             changeActiveItem(e, id);
-             $(document).trigger('vis:viewChanged', id);
-          });
-          $(document).on('vis:viewChanged', changeActiveItem);
+       $('#view_selection li').click(function(e) {
+          var id = $(this).attr('id');
+          changeActiveItem(e, id);
+          $(document).trigger('vis:viewChanged', id);
        });
-    });
-  </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $(document).ready(function() {
-          $('#view_type li').click(function() {
-            var view_type = $(this).attr('id');
-            $('#view_type li').removeClass('active');
-            $(this).toggleClass('active');
-            toggle_view(view_type);
-            return false;
-          });
-        });
+
+       $(document).on('vis:viewChanged', changeActiveItem);
+
+       $('#view_type li').click(function() {
+          var view_type = $(this).attr('id');
+          $('#view_type li').removeClass('active');
+          $(this).toggleClass('active');
+          toggle_view(view_type);
+       });
     });
   </script>
 
