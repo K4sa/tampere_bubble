@@ -6,9 +6,6 @@ class BubbleChart
     @width = 1200
     @height = 1800
 
-	#Määrittää halutun datatyypin(vuoden)
-    @data_type = 1
-
     @tooltip = CustomTooltip("gates_tooltip", 240)
 
 	#Koordinaatit, joihin kappaleet tai tekstit hakeutuvat
@@ -80,12 +77,12 @@ class BubbleChart
     # use the max total_amount in the data as the max in the scale's domain
 
 
-    this.set_range(@data_type)
-    this.create_nodes(@data_type)
+    this.set_range()
+    this.create_nodes()
     this.create_vis()
 
 	#Luodaan kuplien alkiot
-  create_nodes: (data_type) =>
+  create_nodes: () =>
     @nodes = []
     @data.forEach (d) =>
       node = {
@@ -122,7 +119,7 @@ class BubbleChart
 
 
     #Määritetään asteikon min ja max. Nyt käytössä kiinteä max, pois kommentoituna skaalautuva max
-  set_range: (data_type) =>
+  set_range: () =>
     max_new = 25000
     @radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_new]).range([2, 85])
 
