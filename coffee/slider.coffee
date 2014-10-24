@@ -6,6 +6,7 @@ class Slider
 
    createInputElement: ->
       input = document.createElement 'input'
+      input.className = 'year-select'
       input.type = 'range'
       input.min = 0
       input.max = @items.length - 1

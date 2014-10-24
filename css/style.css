@@ -158,6 +158,14 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0);
 }
 
+.title.pull-left, .title.pull-right {
+   min-width: 160px;
+}
+
+input.year-select {
+   width: 510px;
+   margin: 0 auto;
+}
 
 .modal-backdrop.fade.in {
 	opacity: 0.9;
