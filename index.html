@@ -99,30 +99,29 @@
   <script src="js/libs/coffee-script.js"></script>
   <script src="js/libs/d3.js"></script>
   <script type="text/coffeescript" src="coffee/vis.coffee"></script>
+  <script type="text/coffeescript" src="coffee/slider.coffee"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-        $(document).ready(function() {
-          $('#view_selection li').click(function() {
-            var view_type = $(this).attr('id');
-            $('#view_selection li').removeClass('active');
-            $(this).toggleClass('active');
-            toggle_view(view_type);
-            return false;
-          });
-        });
-    });
-  </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $(document).ready(function() {
-          $('#view_type li').click(function() {
-            var view_type = $(this).attr('id');
-            $('#view_type li').removeClass('active');
-            $(this).toggleClass('active');
-            toggle_view(view_type);
-            return false;
-          });
-        });
+       var changeActiveItem = function(e, id) {
+          $('#view_selection li').removeClass('active');
+          $('#' + id).addClass('active');
+          toggle_view(id);
+       };
+
+       $('#view_selection li').click(function(e) {
+          var id = $(this).attr('id');
+          changeActiveItem(e, id);
+          $(document).trigger('vis:viewChanged', id);
+       });
+
+       $(document).on('vis:viewChanged', changeActiveItem);
+
+       $('#view_type li').click(function() {
+          var view_type = $(this).attr('id');
+          $('#view_type li').removeClass('active');
+          $(this).toggleClass('active');
+          toggle_view(view_type);
+       });
     });
   </script>
 

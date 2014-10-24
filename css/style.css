@@ -85,9 +85,10 @@ footer {
 }
 
 .navbar-nav {
+    float: none;
+    margin: 0 auto;
     width: 70%;
     text-align: center;
-	margin-left: 9%;
 }
 .navbar-nav li {
       float: none;
@@ -158,6 +159,14 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0);
 }
 
+.title.pull-left, .title.pull-right {
+   min-width: 160px;
+}
+
+input.year-select {
+   width: 480px;
+   margin: 0 auto;
+}
 
 .modal-backdrop.fade.in {
 	opacity: 0.9;
