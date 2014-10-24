@@ -1,22 +1,8 @@
-window.Slider = class Slider
+class Slider
 
    constructor: (items) ->
       @items = items ? []
-      @el = document.createElement 'ul'
-      @el.appendChild @createElement(item) for item in @items
       @input = @createInputElement()
-
-   createElement: (item) ->
-      a = document.createElement 'a'
-      a.href = '#'
-      a.innerText = item.year
-
-      li = document.createElement 'li'
-      li.appendChild a
-      li.className = 'ye'
-      li.id = item.year
-
-      return li
 
    createInputElement: ->
       input = document.createElement 'input'
@@ -24,7 +10,24 @@ window.Slider = class Slider
       input.min = 0
       input.max = @items.length - 1
 
-      $(input).on 'change', =>
-         toggle_view(@items[$(input).val()].year)
+      $(input).on 'input', =>
+         @sendViewChangedEvent @items[$(@input).val()].name
 
       return input
+
+   sendViewChangedEvent: (id) ->
+      $(document).trigger 'vis:viewChanged', id
+      toggle_view id
+
+
+# Slider-objektin luominen
+slider = new Slider [
+   {name:"1980"}
+   {name:"1990"}
+   {name:"2000"}
+   {name:"2013"}
+   {name:"2020"}
+   {name:"2040"}
+]
+
+$('#view_selection').after slider.input
