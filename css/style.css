@@ -85,9 +85,10 @@ footer {
 }
 
 .navbar-nav {
+    float: none;
+    margin: 0 auto;
     width: 70%;
     text-align: center;
-	margin-left: 9%;
 }
 .navbar-nav li {
       float: none;
@@ -163,7 +164,7 @@ footer {
 }
 
 input.year-select {
-   width: 510px;
+   width: 480px;
    margin: 0 auto;
 }
 
