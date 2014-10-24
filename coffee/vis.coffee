@@ -278,10 +278,10 @@ class BubbleChart
 
     this.hide_location()
 
-	#LAsketaan painovoimapisteet ja siirretään kohti niitä (tiedot valmiiksi järjestyksessä). Kaunis if-lause
+	#LAsketaan painovoimapisteet ja siirretään kohti niitä (tiedot valmiiksi järjestyksessä).
   move_towards_order: (alpha, next_x, next_y, number) =>
     (d) =>
-       if (number == 9 || number == 17 || number == 25 || number == 33 || number == 41 || number == 49 || number == 57 || number == 65 || number == 73 || number == 81 || number == 89 || number == 97 || number == 105)
+       if [ 9, 17, 25, 33, 41, 49, 57, 65, 73, 81, 89, 97, 105].indexOf(number) isnt -1
           next_x = 250
           next_y = next_y + 100
           d.x = d.x + (next_x - d.x) * (@damper + 0.02) * alpha * 1.1
