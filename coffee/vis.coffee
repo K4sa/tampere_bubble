@@ -323,7 +323,7 @@ class BubbleChart
     d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.group)))
     @tooltip.hideTooltip()
 
- get_wiki_info: (name) =>
+  get_wiki_info: (name) =>
     modal = $('#population_modal')
     if (name == "Tammela" || name == "Kaleva" || name == "Petsamo" || name == "Rahola" || name == "Leinola" || name == "Koivistonkylä" || name == "Viiala" || name == "Uusikylä" || name == "Niemi" || name == "Tulli")
        name = name + " (Tampere)"
