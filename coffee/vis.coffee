@@ -92,16 +92,16 @@ class BubbleChart
         id: d.id
         radius: @radius_scale(parseInt(d.total_amount))
         value: d.total_amount
-        people: d.total_amount
-
-        people_80: d.total_80
-        people_90: d.total_90
-        people_00: d.total_00
-        people_20: d.total_20
-        people_40: d.total_40
-        jobs: d.jobs_amount
-        students: d.students_amount
-        old: d.old_amount
+        people:
+           1980: d.total_80
+           1990: d.total_90
+           2000: d.total_00
+           2013: d.total_amount
+           2020: d.total_20
+           2040: d.total_40
+           jobs: d.jobs_amount
+           students: d.students_amount
+           old: d.old_amount
         name: d.location_name
         postal: d.postal_code
         group: d.group_name
@@ -113,63 +113,16 @@ class BubbleChart
 
     @nodes.sort (a,b) -> b.value - a.value
 
-	#Päivitetään alkiot vaihtamalla uusi value ja lasketaan uusi säde
+   #Päivitetään alkiot vaihtamalla uusi value ja lasketaan uusi säde
   update_all_nodes: (data_type) =>
-    if (data_type == 1)
-       @nodes.forEach (d) =>
-          d.value = d.people
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 3)
-       @nodes.forEach (d) =>
-          d.value = d.students
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 4)
-       @nodes.forEach (d) =>
-          d.value = d.old
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 5)
-       @nodes.forEach (d) =>
-          d.value = d.people_80
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 6)
-       @nodes.forEach (d) =>
-          d.value = d.people_90
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 7)
-       @nodes.forEach (d) =>
-          d.value = d.people_00
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 8)
-       @nodes.forEach (d) =>
-          d.value = d.people_20
-          d.radius = @radius_scale(parseInt(d.value))
-    else if (data_type == 9)
-       @nodes.forEach (d) =>
-          d.value = d.people_40
-          d.radius = @radius_scale(parseInt(d.value))
-    else
-       @nodes.forEach (d) =>
-          d.value = d.jobs
-          d.radius = @radius_scale(parseInt(d.value))
-    @nodes.sort (a,b) -> b.value - a.value
+      @nodes.forEach (d) =>
+         d.value = d.people[data_type]
+         d.radius = @radius_scale parseInt d.value
+      @nodes.sort (a,b) -> b.value - a.value
 
 
     #Määritetään asteikon min ja max. Nyt käytössä kiinteä max, pois kommentoituna skaalautuva max
   set_range: (data_type) =>
-    # if (data_type == 1)
-       # max_new = d3.max(@data, (d) -> parseInt(d.total_amount))
-    # else if (data_type == 3)
-       # max_new = d3.max(@data, (d) -> parseInt(d.students_amount))
-    # else if (data_type == 4)
-       # max_new = d3.max(@data, (d) -> parseInt(d.old_amount))
-    # else if (data_type == 5)
-       # max_new = d3.max(@data, (d) -> parseInt(d.total_80))
-    # else if (data_type == 6)
-       # max_new = d3.max(@data, (d) -> parseInt(d.total_90))
-    # else if (data_type == 7)
-       # max_new = d3.max(@data, (d) -> parseInt(d.total_00))
-    # else
-       # max_new = d3.max(@data, (d) -> parseInt(d.jobs_amount))
     max_new = 25000
     @radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_new]).range([2, 85])
 
@@ -492,67 +445,15 @@ $ ->
   root.display_area = () =>
     chart.display_by_area()
   root.toggle_view = (view_type) =>
-    if view_type == 'group'
-      root.display_group()
-    else if view_type == 'order'
-      root.display_order()
-    else if view_type == 'areas'
-      root.display_area()
-    else if view_type == '2013'
-      chart.set_range(1)
-      chart.update_all_nodes(1)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == '1980'
-      chart.set_range(5)
-      chart.update_all_nodes(5)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == '1990'
-      chart.set_range(6)
-      chart.update_all_nodes(6)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == '2000'
-      chart.set_range(7)
-      chart.update_all_nodes(7)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == '2020'
-      chart.set_range(8)
-      chart.update_all_nodes(8)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == '2040'
-      chart.set_range(9)
-      chart.update_all_nodes(9)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == 'jobs'
-      chart.set_range(2)
-      chart.update_all_nodes(2)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == 'students'
-      chart.set_range(3)
-      chart.update_all_nodes(3)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else if view_type == 'old'
-      chart.set_range(4)
-      chart.update_all_nodes(4)
-      chart.update_vis()
-      #chart.start()
-      #root.display_all()
-    else
-      root.display_all()
+      switch view_type
+         when 'group' then root.display_group()
+         when 'order' then root.display_order()
+         when 'areas' then root.display_area()
+         when '2013', '1980', '1990', '2000', '2020', '2040', 'jobs', 'students', 'old'
+            chart.set_range view_type
+            chart.update_all_nodes view_type
+            chart.update_vis()
+         else
+            root.display_all()
 
   d3.csv "data/tampere_data.csv", render_vis
