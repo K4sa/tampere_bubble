@@ -4,7 +4,7 @@ class BubbleChart
   #Visualisaation korkeus
     @data = data
     @width = 1200
-    @height = 1800 
+    @height = 1800
 
 	#Määrittää halutun datatyypin(vuoden)
     @data_type = 1
@@ -29,16 +29,16 @@ class BubbleChart
       "Koillinen": {x: @width - 140, y: 80},
       "Lounainen": {x: 140, y: 660},
       "Eteläinen": {x: @width / 2, y: 720},
-      "Kaakkoinen": {x: @width - 140, y: 660}	  
+      "Kaakkoinen": {x: @width - 140, y: 660}
     }
-    @tre_text = { 
+    @tre_text = {
       "1980: 170 000 asukasta": {x: 330, y: 60},
       "1990: 180 000 asukasta": {x: 240, y: 165},
       "2000: 190 000 asukasta": {x: 200, y: 270},
       "2013: 210 000 asukasta": {x: 200, y: 375},
       "2020: 210 000 asukasta": {x: 220, y: 480},
       "2040: 210 000 asukasta": {x: 280, y: 585},
-      "TARKASTELE Tampereen väkiluvun jakaantumista": {x: 960, y: 60}, 
+      "TARKASTELE Tampereen väkiluvun jakaantumista": {x: 960, y: 60},
       "ja sen kehitystä vuosittain kaaviossa,": {x: 940, y: 80},
       "jossa jokainen kuplaa vastaa eri asuinaluetta.": {x: 990, y: 100},
       "VERTAILE kuplien kokoa,": {x: 990, y: 190},
@@ -50,12 +50,12 @@ class BubbleChart
       "sen alueesta tarkempaa tietoa.": {x: 1010, y: 450},
       "ENNUSTA Tampereen väkiluvun kehitystä": {x: 1025, y: 540},
       "vuosien 2020 ja 2040 ennusteilla,": {x: 975, y: 560},
-      "jotka on laadittu aikaisempien vuosien perusteella": {x: 1005, y: 580}  
+      "jotka on laadittu aikaisempien vuosien perusteella": {x: 1005, y: 580}
     }
 
     #Kartan koordinaatit
     @location_map = {
-      1: {x: 600, y: 460}, 2: {x: 700, y: 420}, 3: {x: 680, y: 520}, 
+      1: {x: 600, y: 460}, 2: {x: 700, y: 420}, 3: {x: 680, y: 520},
       4: {x: 740, y: 460}, 5: {x: 780, y: 420}, 6: {x: 800, y: 470},
       7: {x: 740, y: 540}, 8: {x: 780, y: 580}, 9: {x: 600, y: 580},
       10: {x: 680, y: 560}, 11: {x: 670, y: 600}, 12: {x: 480, y: 460},
@@ -69,7 +69,7 @@ class BubbleChart
 
     @vis = null
     @nodes = []
-    @force = null  
+    @force = null
     @circles = null
 
     #Skaalataan ja väritetään suuralueen mukaan
@@ -93,6 +93,7 @@ class BubbleChart
         radius: @radius_scale(parseInt(d.total_amount))
         value: d.total_amount
         people: d.total_amount
+
         people_80: d.total_80
         people_90: d.total_90
         people_00: d.total_00
@@ -191,7 +192,7 @@ class BubbleChart
       .attr("fill", (d) => @fill_color(d.group))
       .attr("stroke-width", 5)
       .attr("id", (d) -> "bubble_#{d.id}")
-      .on "mouseover", (d,i) -> 
+      .on "mouseover", (d,i) ->
          that.show_details(d,i,this)
          that.circles
             .filter( (circle) => circle.id != d.id)
@@ -211,14 +212,14 @@ class BubbleChart
          that.get_wiki_info(d.name)
          $(element).data('center', true)
          mymodal.modal 'show'
- 
+
     #Animoidaan kuplan säteen muutos 0 -> radius
     @circles.transition().duration(2000).attr("r", (d) -> d.radius)
 
 	#Päivitetään visualisaatio kun jotkin arvot muuttuneet
   update_vis: () =>
-    @circles = null 
-  
+    @circles = null
+
     @circles = @vis.selectAll("circle")
        .data(@nodes, (d) -> d.id)
     @circles.transition().duration(3000).attr('r', (d) -> d.radius)
@@ -271,7 +272,7 @@ class BubbleChart
     this.hide_location()
     this.display_locations()
 
-  #Kohti useaa pistettä 
+  #Kohti useaa pistettä
   move_towards_group: (alpha) =>
     (d) =>
       target = @location_centers[d.group]
@@ -326,11 +327,11 @@ class BubbleChart
     @force.start()
 
     this.hide_location()
- 
+
 	#LAsketaan painovoimapisteet ja siirretään kohti niitä (tiedot valmiiksi järjestyksessä). Kaunis if-lause
   move_towards_order: (alpha, next_x, next_y, number) =>
     (d) =>
-       if (number == 9 || number == 17 || number == 25 || number == 33 || number == 41 || number == 49 || number == 57 || number == 65 || number == 73 || number == 81 || number == 89 || number == 97 || number == 105)  
+       if (number == 9 || number == 17 || number == 25 || number == 33 || number == 41 || number == 49 || number == 57 || number == 65 || number == 73 || number == 81 || number == 89 || number == 97 || number == 105)
           next_x = 250
           next_y = next_y + 100
           d.x = d.x + (next_x - d.x) * (@damper + 0.02) * alpha * 1.1
@@ -339,7 +340,7 @@ class BubbleChart
           next_x = next_x + 100
           d.x = d.x + (next_x - d.x) * (@damper + 0.02) * alpha * 1.1
           d.y = d.y + (next_y - d.y) * (@damper + 0.02) * alpha * 1.1
-       ++number   
+       ++number
 
 	   #Näytetään kartalla
   display_by_area: () =>
@@ -352,14 +353,14 @@ class BubbleChart
           .attr("cy", (d) -> d.y)
     @force.start()
     this.hide_location()
- 
+
  #Siirretään kohti 19 karttapistettä
   move_towards_area: (alpha) =>
     (d) =>
       target = @location_map[d.area]
       d.x = d.x + (target.x - d.x) * (@damper + 0.02) * alpha * 1.1
       d.y = d.y + (target.y - d.y) * (@damper + 0.02) * alpha * 1.1
- 
+
  #Näytetään tooltipin infot
   show_details: (data, i, element) =>
     d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.group)).darker())
@@ -384,7 +385,7 @@ class BubbleChart
        name = name + " (kaupunginosa)"
     else if (name == "Tesomajärvi")
        name = "Tesoma"
-    else if (name == "Pappila" || name == "Ristimäki" || name == "Nurmi" || name == "Rusko" || name == "Ojala") 
+    else if (name == "Pappila" || name == "Ristimäki" || name == "Nurmi" || name == "Rusko" || name == "Ojala")
        modal.find('#wiki').append("<div id='wiki-field'>" + 'Asuinalueesta ei ole tietoja' + "</div>")
        return
     else
@@ -410,11 +411,11 @@ class BubbleChart
   display_modal: (data, i, element) =>
     modal = $('#population_modal')
     modal.find('#place_name').text(data.name)
-	
+
 	#Luodaan modaalin visualisaatiolla (bar chart) tiedot
     bar_data = [data.people_80, data.people_90, data.people_00, data.people, data.people_20, data.people_40]
     year_names = ["1980", "1990", "2000", "2013", "2020", "2040"]
-    
+
     color = @fill_color(data.group)
 
 	#Määritetään koko ja lasketaan maksimi (kertaa 1.1, jotta palkkien yläreunaan jää tilaa)
@@ -446,13 +447,13 @@ class BubbleChart
           .data(bar_data)
        .enter().append("svg:rect")
           .attr("fill", color)
-          .attr "x", (d,i) -> 
+          .attr "x", (d,i) ->
              bar_max_x(i) - 0.5
           .attr("y", 300)
           .attr("width", w_bar)
           .attr "height", (d) ->
              bar_max_y(d)
-          .transition().duration(1500).attr "y", (d) -> 
+          .transition().duration(1500).attr "y", (d) ->
                                         h_bar - bar_max_y(d) - 0.5
 
      #Luodaan palkkien päälle tekstit ja animoidaan arvosta -10
@@ -466,7 +467,7 @@ class BubbleChart
          .attr("dy", ".35em")
          .attr("text-anchor", "end")
          .text(String)
-      .transition().duration(1500).attr "y", (d) -> 
+      .transition().duration(1500).attr "y", (d) ->
                                         h_bar - bar_max_y(d) - 6
 
 
@@ -474,9 +475,9 @@ class BubbleChart
 
 root = exports ? this
 
-#Päivitetään visuaalisaatiota kutsumalla funktioita 
+#Päivitetään visuaalisaatiota kutsumalla funktioita
 $ ->
-  chart = null 
+  chart = null
 
   render_vis = (csv) ->
     chart = new BubbleChart csv, 1
