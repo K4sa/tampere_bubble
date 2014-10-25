@@ -1,0 +1,13 @@
+Tampereen kaupunki. Tampere alueittain 2013
+Saatavissa: http://www.tampere.fi/material/attachments/t/6GA6kr3QM/Tampere_alueittain_2013.pdf
+
+Tampereen kaupunginkanslia. Tilastollinen vuosikrija 2000-2001
+Saatavissa: http://www.tampere.fi/tiedostot/54F2xTESR/vuosikirja00_01.pdf
+
+Vuoden 2020 ennuste on laadittu käyttäen trendikäyrää, joka kuvastaa tilannetta, jossa vuosien 2000-2013 välinen muutos
+jatkuisi samana
+
+Vuoden 2040 ennuste on laadittu käyttäen trendikäyrää, joka huomioi vuodet 1980, 1990, 2000 ja 2013.
+Vuosien yleinen trendi eli vallitseva kehityssuunta määrittelee kasvun tai laskun sekä sen määrän.
+
+Wikipedian tiedot on hankittu käyttäen suomenkielisen Wikipedian API:a. Jokaisesta artikkelista näytetään johdanto.
