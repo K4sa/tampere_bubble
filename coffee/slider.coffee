@@ -2,7 +2,15 @@ class Slider
 
    constructor: (items) ->
       @items = items ? []
-      @input = @createInputElement()
+      @el = @createElement()
+      @$el = $(@el)
+      @$input = @$el.find 'input'
+
+   createElement: ->
+      el = document.createElement 'div'
+      el.className = 'year-select-container'
+      el.appendChild @createInputElement()
+      return el
 
    createInputElement: ->
       input = document.createElement 'input'
@@ -11,11 +19,11 @@ class Slider
       input.min = 0
       input.max = @items.length - 1
 
-      $(input).on 'input', =>
-         @sendViewChangedEvent @items[$(@input).val()].name
+      $(input).on 'input', (e) =>
+         @sendViewChangedEvent @items[e.currentTarget.value].name
 
       $(document).on 'vis:viewChanged', (e, id) =>
-         $(@input).val @indexOfItem id
+         @$input.val @indexOfItem id
 
       return input
 
@@ -24,7 +32,7 @@ class Slider
       toggle_view id
 
    indexOfItem: (year) ->
-      return @items.indexOf item  for item in @items when item.name is year
+      return @items.indexOf item for item in @items when item.name is year
 
 
 # Slider-objektin luominen
@@ -37,4 +45,4 @@ slider = new Slider [
    {name:"2040"}
 ]
 
-$('#view_selection').after slider.input
+$('#view_selection').after slider.el
