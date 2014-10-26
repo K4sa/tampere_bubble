@@ -160,36 +160,13 @@ footer {
 }
 
 .title.pull-left, .title.pull-right {
-    min-width: 160px;
+   min-width: 160px;
 }
 
 input.year-select {
-    -webkit-appearance: none;
-    width: 480px;
-    margin: 0 auto;
+   width: 480px;
+   margin: 0 auto;
 }
-
-input.year-select::-webkit-slider-runnable-track {
-    background: #00ACAE;
-    border: none;
-	height: 8px;
-    border-radius: 3px;
-}
-
-input.year-select::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #2E2E2E;
-    margin-top: -6px;
-}
-
-input.year-select:focus {
-	outline: none;
-}
-
 
 .modal-backdrop.fade.in {
 	opacity: 0.9;
