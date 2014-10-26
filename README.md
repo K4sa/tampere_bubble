@@ -1,7 +1,7 @@
 Tampere int the Bubble
 ==============
 
-Gem install thin
+Gem install thin ->
 Thin start
 
 ==============
