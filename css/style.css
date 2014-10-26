@@ -1,0 +1,185 @@
+a, a:visited, a:active {
+  color: #444;
+}
+
+#vis {
+  width: 1200px;
+  height: 750px;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+body {
+  background-color: #F5EFD5;
+}
+
+footer {
+  text-align: center;
+}
+
+
+.years {
+  font-size: 21px;
+  fill: #aaa;
+}
+
+.tooltip {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+  background: #DBD6BF;
+	opacity: .9;
+  color: black;
+	padding: 10px;
+	width: 300px;
+	font-size: 12px;
+	z-index: 10;
+}
+
+.tooltip .title {
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
+	color: F5EFD5;
+}
+
+.tooltip .name {
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  color: F5EFD5;
+}
+
+.ye  {
+	font-size: 220%;
+	font-family: 'Oswald', sans-serif;
+}
+.gr  {
+	font-size: 120%;
+	font-family: 'Oswald', sans-serif;
+}
+
+.groups  {
+	font-size: 120%;
+	font-family: 'Josefin Slab', serif;
+}
+
+.tredata {
+	font-size: 120%;
+	font-family: 'Josefin Slab', serif;
+	fill: #2E2E2E;
+}
+
+.title {
+	font-size: 220%
+}
+
+#brand-text  {
+	font-size: 160%;
+	font-family: 'Josefin Slab', serif;
+	font-weight: bold;
+}
+
+#brand-city  {
+	font-size: 200%;
+	font-family: 'Oswald', sans-serif;
+	color: #00ACAE;
+}
+
+.navbar-nav {
+    float: none;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+.navbar-nav li {
+      float: none;
+      display: inline-block;
+    }
+.navbar-nav > li > a {
+    padding-bottom: 2px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #2E2E2E;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #00ACAE;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #F37606;
+  background-color: transparent;
+}
+.navbar-default {
+  background-color: #transparent;
+  border-color: #transparent;
+}
+.bar_chart rect {
+    font: 10px sans-serif;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: black;
+	stroke: #F5EFD5;;
+    stroke-width: 8;
+   }
+
+.modal-content {
+    border-radius: 0px;
+	opacity: 0.9;
+	background-color: #F5EFD5;
+}
+
+.modal-header {
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
+	border-bottom: 0px;
+}
+
+.modal-body {
+	font-size: 18px;
+	font-family: 'Josefin Slab', serif;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+.modal-footer {
+	border-top: 0px;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	padding: 0px 28px 10px 28px;
+	
+}
+
+.modal-content{
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0);
+}
+
+.title.pull-left, .title.pull-right {
+   min-width: 160px;
+}
+
+input.year-select {
+   width: 480px;
+   margin: 0 auto;
+}
+
+.modal-backdrop.fade.in {
+	opacity: 0.9;
+}
+
+#wiki {
+	font-size: 120%;
+	font-family: 'Josefin Slab', serif;
+	text-align: justify;
+	fill: #2E2E2E;
+}
+
+#wikicite {
+	text-align: left;
+}
+

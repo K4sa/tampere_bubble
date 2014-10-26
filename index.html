@@ -1,0 +1,135 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Tampere in the bubble</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <!--<link rel="stylesheet" href="css/reset.css">-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <!-- end CSS-->
+
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+
+<div class="modal fade" id="population_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div id="place_name"></div>
+      </div>
+      <div class="modal-body">
+		<div id="year_2040"></div>
+      </div>
+	  <div class="modal-footer">
+			<div class="row" id="year_bar">
+				<div class="col-md-2">1980</div>
+				<div class="col-md-2">1990</div>
+				<div class="col-md-2">2000</div>
+				<div class="col-md-2">2013</div>
+				<div class="col-md-2">2020</div>
+				<div class="col-md-2">2040</div>
+			</div>
+			<br>
+			<div id="wiki">
+			</div>
+			<div id ="wikicite">- Wikipedia</div>
+	  </div>
+    </div>
+  </div>
+</div>
+   <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="navbar-header">
+       <a class="navbar-brand" id="brand-text" href="#"><p id="brand-city">TAMPERE</p><br>&nbsp;&nbsp;&nbsp;&nbsp; in the Bubble</a>
+    </div>
+         <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav" id="view_selection">
+			   <li class="ye" id="1980"><a href="#">1980</a></li>
+			   <li class="ye" id="1990"><a href="#"> 1990 </a></li>
+			   <li class="ye" id="2000"><a href="#"> 2000 </a></li>
+			   <li class="ye active" id="2013"><a href="#"> 2013 </a></li>
+			   <li class="ye" id="2020"><a href="#"> 2020 </a></li>
+			   <li class="ye" id="2040"><a href="#"> 2040 </a></li>
+		    </ul>
+         </ul>
+         <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="view_type">
+               <li class="gr active" id="all"><a href="#">YHDESSÄ</a></li>
+               <li class="gr" id="group"><a href="#">SUURALUEITTAIN</a></li>
+	           <li class="gr" id="areas"><a href="#">ALUEITTAIN</a></li>
+		       <li class="gr" id="order"><a href="#">JÄRJESTÄ</a></li>
+            </ul>
+         </ul>
+		</div>
+      </div><!-- /.container-fluid -->
+   </nav>
+ <div id="container" class="container">
+    <div id="main" role="main">
+      <div id="vis"></div>
+    </div>
+    <footer>
+    <p></p>
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.1.min.js"><\/script>')</script>
+
+  <script defer src="js/script.js"></script>
+  <script src="js/CustomTooltip.js"></script>
+  <script src="js/libs/modal.js"></script>
+  <script src="js/libs/coffee-script.js"></script>
+  <script src="js/libs/d3.js"></script>
+  <script type="text/coffeescript" src="coffee/vis.coffee"></script>
+  <script type="text/coffeescript" src="coffee/slider.coffee"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+       var changeActiveItem = function(e, id) {
+          $('#view_selection li').removeClass('active');
+          $('#' + id).addClass('active');
+          toggle_view(id);
+       };
+
+       $('#view_selection li').click(function(e) {
+          var id = $(this).attr('id');
+          changeActiveItem(e, id);
+          $(document).trigger('vis:viewChanged', id);
+       });
+
+       $(document).on('vis:viewChanged', changeActiveItem);
+
+       $('#view_type li').click(function() {
+          var view_type = $(this).attr('id');
+          $('#view_type li').removeClass('active');
+          $(this).toggleClass('active');
+          toggle_view(view_type);
+       });
+    });
+  </script>
+
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>
