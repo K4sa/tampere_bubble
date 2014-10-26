@@ -14,17 +14,17 @@ class Slider
 
          # Siirtää slideria eteenpäin
          incrementSlider = =>
-            if @$input.val() is @$input.attr('max') 
+            if @$input.val() is @$input.attr('max')
                $(@).trigger 'play:stopped'
                return
             @sendViewChangedEvent @items[~~@$input.val() + 1].name
 
-         @animationId = setInterval(incrementSlider, 1000)
+         @animationId = setInterval(incrementSlider, 2300)
 
          # Play aloittaa vuodet alusta
          @sendViewChangedEvent @items[0].name
 
-      $(@).on 'play:stopped', => 
+      $(@).on 'play:stopped', =>
          @setPlayControlText '▶'
          @isPlaying = false
          clearInterval @animationId
@@ -45,7 +45,7 @@ class Slider
       play.innerText = '▶'
 
       $(play).on 'click', =>
-         if @isPlaying then $(@).trigger 'play:stopped' 
+         if @isPlaying then $(@).trigger 'play:stopped'
          else $(@).trigger 'play:started'
 
       controls.appendChild play
