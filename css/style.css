@@ -149,7 +149,6 @@ footer {
 	font-family: 'Oswald', sans-serif;
 	text-align: center;
 	padding: 0px 28px 10px 28px;
-	
 }
 
 .modal-content{
@@ -163,10 +162,26 @@ footer {
     min-width: 160px;
 }
 
-input.year-select {
-    -webkit-appearance: none;
+.year-select-container {
     width: 480px;
     margin: 0 auto;
+    position: relative;
+}
+
+.play-controls {
+   position: absolute;
+   right: 480px;
+}
+
+.play-control {
+   cursor: pointer;
+}
+.play-control:hover {
+   color: #F37606;
+}
+
+input.year-select {
+    -webkit-appearance: none;
 }
 
 input.year-select::-webkit-slider-runnable-track {

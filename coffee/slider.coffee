@@ -9,8 +9,20 @@ class Slider
    createElement: ->
       el = document.createElement 'div'
       el.className = 'year-select-container'
+      el.appendChild @createPlayControls()
       el.appendChild @createInputElement()
       return el
+
+   createPlayControls: ->
+      controls = document.createElement 'div'
+      controls.className = 'play-controls'
+
+      play = document.createElement 'span'
+      play.className = 'play-control'
+      play.innerText = '▶'
+
+      controls.appendChild play
+      return controls
 
    createInputElement: ->
       input = document.createElement 'input'
