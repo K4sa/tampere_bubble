@@ -1,10 +1,20 @@
 class Slider
 
+   isPlaying: false
+
    constructor: (items) ->
       @items = items ? []
       @el = @createElement()
       @$el = $(@el)
       @$input = @$el.find 'input'
+
+      $(@).on 'play:started', =>
+         @isPlaying = true
+         console.log @isPlaying
+
+      $(@).on 'play:stopped', => 
+         @isPlaying = false
+         console.log @isPlaying
 
    createElement: ->
       el = document.createElement 'div'
@@ -20,6 +30,10 @@ class Slider
       play = document.createElement 'span'
       play.className = 'play-control'
       play.innerText = '▶'
+
+      $(play).on 'click', =>
+         if @isPlaying then $(@).trigger 'play:stopped' 
+         else $(@).trigger 'play:started'
 
       controls.appendChild play
       return controls
