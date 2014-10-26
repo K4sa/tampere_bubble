@@ -170,7 +170,8 @@ footer {
 
 .play-controls {
    position: absolute;
-   right: 480px;
+   right: 485px;
+   top: -5px;
 }
 
 .play-control {

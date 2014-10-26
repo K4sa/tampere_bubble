@@ -9,12 +9,25 @@ class Slider
       @$input = @$el.find 'input'
 
       $(@).on 'play:started', =>
+         @setPlayControlText '❚❚'
          @isPlaying = true
-         console.log @isPlaying
+
+         # Siirtää slideria eteenpäin
+         incrementSlider = =>
+            if @$input.val() is @$input.attr('max') 
+               $(@).trigger 'play:stopped'
+               return
+            @sendViewChangedEvent @items[~~@$input.val() + 1].name
+
+         @animationId = setInterval(incrementSlider, 1000)
+
+         # Play aloittaa vuodet alusta
+         @sendViewChangedEvent @items[0].name
 
       $(@).on 'play:stopped', => 
+         @setPlayControlText '▶'
          @isPlaying = false
-         console.log @isPlaying
+         clearInterval @animationId
 
    createElement: ->
       el = document.createElement 'div'
@@ -37,6 +50,9 @@ class Slider
 
       controls.appendChild play
       return controls
+
+   setPlayControlText: (text) ->
+      $('.play-control').html text
 
    createInputElement: ->
       input = document.createElement 'input'
