@@ -101,6 +101,7 @@
                <li class="gr" id="group"><a href="#">SUURALUEITTAIN</a></li>
 	           <li class="gr" id="areas"><a href="#">ALUEITTAIN</a></li>
 		       <li class="gr" id="order"><a href="#">JÄRJESTÄ</a></li>
+		       	   <li class="gr pull-right" id="info"><a href="#">INFO</a></li>
             </ul>
          </ul>
 		</div>
@@ -144,6 +145,11 @@
 
        $('#view_type li').click(function() {
           var view_type = $(this).attr('id');
+          		  if (view_type == "info")
+			{
+			   $('#data_modal').modal('show')
+			   return;
+	     	}
           $('#view_type li').removeClass('active');
           $(this).toggleClass('active');
           toggle_view(view_type);
