@@ -25,7 +25,33 @@
 </head>
 
 <body>
-
+<div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		<p id="place_name">INFO</p>
+      </div>
+      <div class="modal-body">
+	    <h2>Datalähteet</h2>
+		<p>Alueiden väkilukuihin on käytetty avointa Tampereen kaupungin julkaisemaa dataa, joka on koottu erilaisista tilastoista. Data on pyritty säilyttämään muuttumattomana, mutta
+		joidenkin asuinalueiden kohdalla niiden nimet ovat vaihtuneet. Tällöin nimenä käytetään uusinta aineistossa ilmenevää nimeä.</p> 
+		<p>Tilastot on saatavissa seuraavista linkeistä:</p>
+		<a href="http://www.tampere.fi/material/attachments/t/6GA6kr3QM/Tampere_alueittain_2013.pdf" target="_blank">Tampereen kaupunki. Tampere alueittain 2013</a><br>
+		<a href="http://www.tampere.fi/tiedostot/54F2xTESR/vuosikirja00_01.pdf" target="_blank">Tampereen kaupunginkanslia. Tilastollinen vuosikirja 2000-2001</a><br><br>
+		<p>Wikipedian tekstit on hankittu suomenkielisestä Wikipediasta käyttäen MediaWikin tarjoamaa rajapintaa:</p>
+		<a href="http://www.mediawiki.org/wiki/API:Main_page" target="_blank">MediaWiki API</a><br>
+		<h2>Ennusteet</h2>
+		<p>Vuoden 2020 ennuste on laadittu käyttäen trendikäyrää niin, että se huomioi vain vuosien 2000 ja 2013 väkiluvut. Toisin sanoen tällöin oletetaan muutoksen jatkuvan
+		samana kuin vuosien 2000 ja 2013 välillä</p>
+		<p>Vuoden 2040 ennuste on laadittu käyttäen trendikäyrää, joka huomioi kaikki neljä (1980-2013) väkilukua. Jokainen pistee vaikuttaa käyrän suuntaan ja kulmaan.
+		Toisin sanoen muutoksen katsotaan jatkuvan samana kun se on aikaisempina vuosina jatkunut.</p>
+      </div>
+	  <div class="modal-footer">
+	  </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="population_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
