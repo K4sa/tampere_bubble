@@ -1,4 +1,4 @@
-Tampere int the Bubble
+Tampere in the Bubble
 ==============
 
 Gem install thin ->
