@@ -49,6 +49,17 @@ class BubbleChart
       "vuosien 2020 ja 2040 ennusteilla,": {x: 975, y: 560},
       "jotka on laadittu aikaisempien vuosien perusteella": {x: 1005, y: 580}
     }
+    @area_text = {
+      "Pohjoinen": {x: 900, y: 50},
+      "Koillinen": {x: 1010, y: 220},
+      "Itä": {x: 1100, y: 420},
+      "Kaakko": {x: 1050, y: 650},
+      "Etelä": {x: 530, y: 780},
+      "Lounas": {x: 170, y: 620},
+      "Länsi": {x: 30, y: 420},
+      "Luode": {x: 180, y: 220},
+      "Keskusta": {x: 550, y: 180}
+    }
 
     #Kartan koordinaatit
     @location_map = {
@@ -58,7 +69,9 @@ class BubbleChart
       10: {x: 680, y: 560}, 11: {x: 670, y: 600}, 12: {x: 480, y: 460},
       13: {x: 400, y: 520}, 14: {x: 300, y: 480}, 15: {x: 380, y: 420},
       16: {x: 400, y: 350}, 17: {x: 780, y: 300}, 18: {x: 760, y: 280},
-      19: {x: 760, y: 260} }
+      19: {x: 760, y: 260} 
+    }
+
     # Gravitaaiossa käytettyjä arvoja
     @layout_gravity = -0.01
     @layout_gravity_groups = -0.01
@@ -247,6 +260,7 @@ class BubbleChart
   hide_location: () =>
     loc = @vis.selectAll(".groups").remove()
     tre = @vis.selectAll(".tredata").remove()
+    ar = @vis.selectAll(".areadata").remove()
 
 	#näytetään aloitussivun tekstit
   display_tre: () =>
@@ -303,6 +317,7 @@ class BubbleChart
           .attr("cy", (d) -> d.y)
     @force.start()
     this.hide_location()
+    this.display_area()
 
  #Siirretään kohti 19 karttapistettä
   move_towards_area: (alpha) =>
@@ -310,6 +325,20 @@ class BubbleChart
       target = @location_map[d.area]
       d.x = d.x + (target.x - d.x) * (@damper + 0.02) * alpha * 1.1
       d.y = d.y + (target.y - d.y) * (@damper + 0.02) * alpha * 1.1
+
+	#näytetään aloitussivun tekstit
+  display_area: () =>
+    area = @area_text
+    area_data = d3.keys(area)
+    ar = @vis.selectAll(".areadata")
+       .data(area_data)
+
+    ar.enter().append("text")
+       .attr("class", "areadata")
+       .attr("x", (d) => area[d].x)
+       .attr("y", (d) => area[d].y)
+       .attr("text-anchor", "middle")
+       .text((d) -> d)
 
  #Näytetään tooltipin infot
   show_details: (data, i, element) =>
